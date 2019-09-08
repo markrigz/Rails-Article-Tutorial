@@ -5,6 +5,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Date</th>
     <th></th>
   </tr>
 
@@ -12,9 +13,10 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.created_at %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
+      <td><%= link_to 'Delete', article_path(article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
