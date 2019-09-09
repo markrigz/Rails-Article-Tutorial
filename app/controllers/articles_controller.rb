@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
 
   def index
     #@articles = Article.all.order(:title)
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
+    #@articles = Article.all
   end
 
   def show
