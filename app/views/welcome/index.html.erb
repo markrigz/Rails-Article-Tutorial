@@ -10,5 +10,8 @@
 <% end %>
 <p id='notice'><%= notice %></p>
 -->
-
-<%= link_to 'Begin', controller: 'articles' %>
+<% if session[:user_id] %>
+  <%= link_to 'Begin', controller: 'articles' %>
+<% else %>
+  <i>Please login or sign up!</i>
+<% end %>

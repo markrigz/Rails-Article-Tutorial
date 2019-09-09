@@ -11,9 +11,12 @@
 <p>by <%=  @article.user.username %></p>
 
 <h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
+<% if @article.comments.nil? %>
+  <%= render @article.comments %>
+<% else %>
+  <i>No comments yet...</i>
+<% end %>
+<br><h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
 <td><%= link_to 'Delete', article_path(@article),
