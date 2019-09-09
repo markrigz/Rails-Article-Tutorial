@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <header>
+      <% if current_user %>
+        Hi <%= current_user.username %>
+        |
+        <%= link_to 'Log out', logout_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Log in', login_path %>
+        |
+        <%= link_to 'Sign up', signup_path %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
