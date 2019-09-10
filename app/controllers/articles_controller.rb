@@ -2,8 +2,7 @@ class ArticlesController < ApplicationController
 
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
-  #To prevent users messing with other users posts
-  before_action :require_author, only: [:edit, :update, :destroy]
+  before_action :require_login, only: [:index]
 
 
   def index
@@ -55,8 +54,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-  def require_author
-    redirect_to(@article) unless @article.user == current_user
+  def require_login
+    redirect_to(root_url) unless session[:user_id]
   end
 
 
