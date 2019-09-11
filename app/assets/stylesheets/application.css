@@ -12,10 +12,8 @@
  *
  *= require_tree .
  *= require_self
-
-header {
-  height: 100%;
-  background-color: grey;
-  margin: auto;
-}
 */
+
+.homeLink{
+  float: right;
+}

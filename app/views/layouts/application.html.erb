@@ -6,23 +6,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
+    <header id="header">
       <% if current_user %>
         Hi <%= current_user.username %>
-        |
+
         <%= link_to 'Log out', logout_path, session: :destroy %>
       <% else %>
         <%= link_to 'Log in', login_path %>
-        |
+
         <%= link_to 'Sign up', signup_path %>
       <% end %>
-        |--|
-      <%= link_to 'Home', root_url %>
-        |
+
+      <%= link_to 'Home', root_url, {:class => 'homeLink'} %>
+
     </header>
     <%= yield %>
   </body>

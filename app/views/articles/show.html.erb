@@ -11,10 +11,16 @@
 <p>by <%=  @article.user.username %></p>
 
 <h2>Comments</h2>
-<% if @article.comments.nil? %>
-  <%= render @article.comments %>
-<% else %>
-  <i>No comments yet...</i>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
 <% end %>
 <br><h2>Add a comment:</h2>
 <%= render 'comments/form' %>
